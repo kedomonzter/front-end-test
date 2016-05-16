@@ -41,6 +41,8 @@ The code is structured as component directives that each
 5. Bonus: The look is... a bit too bare for our taste - can you add some styling please? Feel free to improvise here but we'd like it to be in SASS.
 6. Bonus: We'd love to really optimize the page load speed - ideally we'd only want to serve one js file. Is this something you can do?
 
+##Please run bower install
+bower install
 ## Ready, get set - GO!
 Start the server
 ``` node server.js ```
