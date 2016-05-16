@@ -1,5 +1,6 @@
 (function () {
-    angular.module('qudini.QueueApp', [])
+        angular
+        .module('qudini.QueueApp')
         .directive('customer', Customer)
 
     /**
@@ -13,8 +14,7 @@
         return{
             restrict: 'E',
             scope:{
-                customer: '=',
-
+                customer: '=', 
                 onRemoved: '&',
                 onServed: '&'
             },
@@ -37,5 +37,5 @@
         }
     }
 
-})()
+})();
 

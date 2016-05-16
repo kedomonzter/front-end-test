@@ -12,9 +12,7 @@ var customers = [
     {name: 'Allan Turing', product: {name:'Cryptography advice'}, id: uuid.v4(), joinedTime: new Date().toString()},
 ]
 
-var servedCustomers = [
-
-];
+var servedCustomers = customers;
 
 function serveCustomer(id){
     customers = customers.filter(function(customer){
@@ -29,7 +27,9 @@ function serveCustomer(id){
 }
 
 function addCustomer(customer){
+    console.log(customer);
     customer.id = uuid.v4();
+    customer.name = customer.name;
     customers.push(customer);
 }
 
@@ -44,6 +44,7 @@ function removeCustomer(targetCustomerId){
 var app = express();
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+app.use(bodyParser());
 
 app.get('/api/customers', function(req,res){
     res.send(customers);
@@ -52,6 +53,7 @@ app.get('/api/customers/served', function(req,res){
     res.send(servedCustomers);
 })
 app.post('/api/customer/add', function(req,res){
+    console.log('req',req.body);
     addCustomer(req.body);
     res.end('Customer was added!');
 });
